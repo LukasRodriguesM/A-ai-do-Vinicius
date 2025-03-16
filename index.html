@@ -58,7 +58,7 @@
         <main class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
 
             <!-- PRODUTO ITEM -->
-            <div class="flex gap-2">
+            <div class="flex gap-2" id="acai-btn">
                 <img 
                 src="./assets/acai-2.png" 
                 alt="Açai"
@@ -135,18 +135,18 @@
         <div class="flex gap-2 w-full">
             <img 
             src="./assets/sorvete" 
-            alt="Sorvete"
+            alt="Picole"
             class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
             />
             
             <div class="w-full">
-                <p class="font-bold">Sorvete</p>
-                <p class="text-sm">Sorvete cremoso e refrescante, perfeito para qualquer momento! Disponível em diversos sabores irresistíveis!</p>
+                <p class="font-bold">Picolé</p>
+                <p class="text-sm">Picolé geladinho, sabor intenso e ideal para se refrescar nos dias quentes. Diversos sabores para todos os gostos!</p>
                 
                 <div class="flex items-center gap-2 justify-end mt-3">
                     <button 
                     class="bg-gray-900 px-5 rounded add-to-cart-btn"
-                    data-name="Sorvete"
+                    data-name="Picole"
                     >
                         <i class="fa fa-cart-plus text-lg text-white"></i>
                     </button>
@@ -160,6 +160,229 @@
 
     </div>
     <!-- FIM MENU -->
+
+
+        <!-- MODAL CART ACAI -->
+
+        <div 
+        class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden"
+        id="cart-acai"
+        >
+
+            <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
+                <h2 class="text-center font-bold text-2xl mb-2">Adicionais</h2>
+
+                <div id="cart-items" class="flex justify-between mb-2 flex-col"></div>
+
+                <div class="grid grid-cols-1 gap-2 mx-auto max-w-7xl px-2 mb-5">
+                    <h1 class="font-bold mb-2">Escolha um tamanho</h1>
+                    
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="8.00">  
+                            <div class="flex flex-auto gap-4">                                
+                                <h2>300ml</h2>                   
+                                <h2>R$ 8.00</h2>
+                            </div>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="10.00">  
+                            <div class="flex flex-auto gap-4">                                
+                                <h2>400ml</h2>                   
+                                <h2>R$ 10.00</h2>
+                            </div>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="12.00">  
+                            <div class="flex flex-auto gap-4">                                
+                                <h2>500ml</h2>                   
+                                <h2>R$ 12.00</h2>
+                            </div>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <p class="font-medium text-sm">Já incluso!</p>
+                    <p class="font-medium text-sm">(Leite em pó, leite condensado, granola e paçoca)</p>
+
+                </div>
+
+                 <!-- INICIO ADICIONAIS -->
+
+                 <div class="grid grid-cols-1 gap-2 mx-auto max-w-7xl px-2 mb-10">
+                    <h1 class="font-bold mb-2">Adicionais</h1>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="1.00">  
+                            <div class="flex flex-auto gap-4">                                
+                                <h2>Xerém de Amendoim</h2>                   
+                                <h2>R$ 1.00</h2>
+                            </div>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="1.00">  
+                            <div class="flex flex-auto gap-4">                                
+                                <h2>Paçoca</h2>                   
+                                <h2>R$ 1.00</h2>
+                            </div>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="1.50">  
+                            <div class="flex flex-auto gap-4">                                
+                                <h2>Gotas de Chocolate</h2>                   
+                                <h2>R$ 1.50</h2>
+                            </div>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="1.50">  
+                            <div class="flex flex-auto gap-4">                                
+                                <h2>MMs</h2>                   
+                                <h2>R$ 1.50</h2>
+                            </div>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="1.00">  
+                            <div class="flex flex-auto gap-4">                                
+                                <h2>Granulado / Chocolate</h2>                   
+                                <h2>R$ 1.00</h2>
+                            </div>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="1.00">  
+                            <div class="flex flex-auto gap-4">                                
+                                <h2>Jujuba</h2>                   
+                                <h2>R$ 1.00</h2>
+                            </div>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="1.00">  
+                            <div class="flex flex-auto gap-4">                                
+                                <h2>Farinha láctea</h2>                   
+                                <h2>R$ 1.00</h2>
+                            </div>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="1.00">  
+                            <div class="flex flex-auto gap-4">                                
+                                <h2>Bis</h2>                   
+                                <h2>R$ 1.00</h2>
+                            </div>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="1.00">  
+                            <div class="flex flex-auto gap-4">                                
+                                <h2>Biscoito Oreo</h2>                   
+                                <h2>R$ 1.00</h2>
+                            </div>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="2.00">  
+                            <div class="flex flex-auto gap-4">                                
+                                <h2>Kit Kat</h2>                   
+                                <h2>R$ 2.00</h2>
+                            </div>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="1.00">  
+                            <div class="flex flex-auto gap-4">                                
+                                <h2>Barra de Chocolate</h2>                   
+                                <h2>R$ 1.00</h2>
+                            </div>
+                        <span class="checkmark"></span>
+                    </label>
+                    
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="0.50">  
+                        <div class="flex flex-auto gap-4">                                
+                            <h2>Calda de Morango</h2>                   
+                            <h2>R$ 0.50</h2>
+                        </div>
+                        <span class="checkmark"></span>
+                    </label>
+                    
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="0.50">  
+                        <div class="flex flex-auto gap-4">                                
+                            <h2>Calda de Chocolate</h2>                   
+                            <h2>R$ 0.50</h2>
+                        </div>
+                        <span class="checkmark"></span>
+                    </label>
+                    
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="0.50">  
+                        <div class="flex flex-auto gap-4">                                
+                            <h2>Calda de Banana Caramelizda</h2>                   
+                            <h2>R$ 0.50</h2>
+                        </div>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="2.00">  
+                        <div class="flex flex-auto gap-4">                                
+                            <h2>Tortuguita</h2>                   
+                            <h2>R$ 2.00</h2>
+                        </div>
+                        <span class="checkmark"></span>
+                    </label>
+                    
+                    <label class="checkbox-container">
+                        <input type="checkbox" data-price="1.00">  
+                            <div class="flex flex-auto gap-4">                                
+                                <h2>Amendoim Salgado</h2>                   
+                                <h2>R$ 1.00</h2>
+                            </div>
+                        <span class="checkmark"></span>
+                    </label>
+                    
+                </div>
+                
+                <!-- FIM ADICIONIAS -->
+
+                <p class="font-bold">Total: <span id="cart-total">0.00</span></p>
+
+                <p class="font-bold mt-4">Observação</p>
+                <input type="text"
+                placeholder="Digite alguma observação do pedido"
+                id="observation"
+                class="w-full border-2 p-1 rounded my-1"
+                />
+               
+                <div class="flex items-center justify-between mt-5 w-full">
+                    <button id="close-modal-btn-acai">Fechar</button>
+                    <button id="checkout-btn" class="bg-green-500 text-white px-4 py-1 rounded">Finalizar pedido</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FIM MODAL CART ACAI -->
+
+
 
         <!-- MODAL CART -->
         <div 

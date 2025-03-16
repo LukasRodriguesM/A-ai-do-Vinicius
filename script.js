@@ -8,10 +8,31 @@ const closeModalBtn = document.getElementById("close-modal-btn")
 const cartCounter = document.getElementById("cart-count")
 const addressInput = document.getElementById("address")
 const addressWarn = document.getElementById("address-warn")
+const cartAcai = document.getElementById("cart-acai")
+const acaibtn = document.getElementById("acai-btn")
+const closeModalAcai = document.getElementById("close-modal-btn-acai")
 
 
 // Array vazio
 let cart =[];
+
+// Abrir o modal do Açai
+acaibtn.addEventListener("click", function() {
+    updateCartModal();
+    cartAcai.style.display = "flex"
+})
+
+// Fechar o modal Acai quando clicar fora
+cartAcai.addEventListener("click", function(event){
+    if(event.target === cartAcai) {
+        cartAcai.style.display = "none"
+    }
+}) 
+
+// Clica para fechar o Modal Acai(Area de venda)
+closeModalAcai.addEventListener("click", function(){
+    cartAcai.style.display = "none"
+})
 
 // Abrir o modal do carrinho
 cartBtn.addEventListener("click", function() {
