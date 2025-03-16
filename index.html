@@ -69,14 +69,6 @@
                     <p class="font-bold">Açai</p>
                     <p class="text-sm">Açaí delicioso e cremoso nos tamanhos 300ml, 400ml e 500ml. Perfeito para refrescar o dia!</p>
                     
-                    <div class="flex items-center gap-2 justify-end mt-3">
-                        <button 
-                        class="bg-gray-900 px-5 rounded add-to-cart-btn"
-                        data-name="Açai"
-                        >
-                        <i class="fa fa-cart-plus text-lg text-white"></i>
-                    </button>
-                </div>
             </div>
             
         </div>
@@ -94,7 +86,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16" id="menu">
         
         <!-- SORVETE ITEM -->
-        <div class="flex gap-2 w-full">
+        <div class="flex gap-2 w-full"  id="sorvete-btn">
             <img 
             src="./assets/sorvete" 
             alt="Sorvete"
@@ -103,16 +95,8 @@
             
             <div class="w-full">
                 <p class="font-bold">Sorvete</p>
-                <p class="text-sm">Sorvete cremoso e refrescante, perfeito para qualquer momento! Disponível em diversos sabores irresistíveis!</p>
-                
-                <div class="flex items-center gap-2 justify-end mt-3">
-                    <button 
-                    class="bg-gray-900 px-5 rounded add-to-cart-btn"
-                    data-name="Sorvete"
-                    >
-                        <i class="fa fa-cart-plus text-lg text-white"></i>
-                    </button>
-                </div>
+                <p class="text-sm">Sorvete cremoso e refrescante, perfeito para qualquer momento! Disponível em diversos sabores irresistíveis!</p> 
+               
             </div>
 
         </div>
@@ -131,30 +115,31 @@
          <!-- GRID PICOLE -->
          <div class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16" id="menu">
             
-            <!-- SORVETE ITEM -->
-        <div class="flex gap-2 w-full">
-            <img 
-            src="./assets/sorvete" 
-            alt="Picole"
-            class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
-            />
-            
-            <div class="w-full">
-                <p class="font-bold">Picolé</p>
-                <p class="text-sm">Picolé geladinho, sabor intenso e ideal para se refrescar nos dias quentes. Diversos sabores para todos os gostos!</p>
-                
-                <div class="flex items-center gap-2 justify-end mt-3">
-                    <button 
-                    class="bg-gray-900 px-5 rounded add-to-cart-btn"
-                    data-name="Picole"
-                    >
+            <!-- PICOLE ITEM -->
+
+            <div class="flex gap-2">
+                <img 
+                src="./assets/sorvete" 
+                alt="Picolé"
+                class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
+                />
+
+                <div>
+                    <p class="font-bold">Picolé</p>
+                    <p class="text-sm">Picolé geladinho, sabor intenso e ideal para se refrescar nos dias quentes. Diversos sabores para todos os gostos!</p>
+                    
+                    <div class="flex items-center gap-2 justify-end mt-3">
+                        <button 
+                        class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                        data-name="Picole"
+                        >
                         <i class="fa fa-cart-plus text-lg text-white"></i>
                     </button>
                 </div>
             </div>
-
+            
         </div>
-        <!-- FIM SORVETE ITEM -->
+        <!-- FIM PICOLE ITEM -->
 
          <!-- FIM GRID PICOLE -->
 
@@ -169,7 +154,7 @@
         id="cart-acai"
         >
 
-            <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
+            <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px] max-h-[90vh] overflow-y-auto">
                 <h2 class="text-center font-bold text-2xl mb-2">Adicionais</h2>
 
                 <div id="cart-items" class="flex justify-between mb-2 flex-col"></div>
@@ -177,32 +162,29 @@
                 <div class="grid grid-cols-1 gap-2 mx-auto max-w-7xl px-2 mb-5">
                     <h1 class="font-bold mb-2">Escolha um tamanho</h1>
                     
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="8.00">  
-                            <div class="flex flex-auto gap-4">                                
-                                <h2>300ml</h2>                   
-                                <h2>R$ 8.00</h2>
-                            </div>
-                        <span class="checkmark"></span>
-                    </label>
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" data-price="8.00" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                          <h2>300ml</h2>
+                          <h2>R$ 8.00</h2>
+                        </div>
+                      </label>
 
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="10.00">  
-                            <div class="flex flex-auto gap-4">                                
-                                <h2>400ml</h2>                   
-                                <h2>R$ 10.00</h2>
-                            </div>
-                        <span class="checkmark"></span>
-                    </label>
+                      <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" data-price="10.00" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                          <h2>400ml</h2>
+                          <h2>R$ 10.00</h2>
+                        </div>
+                      </label>
 
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="12.00">  
-                            <div class="flex flex-auto gap-4">                                
-                                <h2>500ml</h2>                   
-                                <h2>R$ 12.00</h2>
-                            </div>
-                        <span class="checkmark"></span>
-                    </label>
+                      <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" data-price="12.00" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                          <h2>500ml</h2>
+                          <h2>R$ 12.00</h2>
+                        </div>
+                      </label>
 
                     <p class="font-medium text-sm">Já incluso!</p>
                     <p class="font-medium text-sm">(Leite em pó, leite condensado, granola e paçoca)</p>
@@ -213,156 +195,140 @@
 
                  <div class="grid grid-cols-1 gap-2 mx-auto max-w-7xl px-2 mb-10">
                     <h1 class="font-bold mb-2">Adicionais</h1>
-
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="1.00">  
-                            <div class="flex flex-auto gap-4">                                
-                                <h2>Xerém de Amendoim</h2>                   
-                                <h2>R$ 1.00</h2>
-                            </div>
-                        <span class="checkmark"></span>
+                  
+                    <label class="flex items-center gap-4 cursor-pointer">
+                      <input type="checkbox" data-price="1.00" class="form-checkbox h-5 w-5 text-blue-600">
+                      <div class="flex justify-between w-full">
+                        <h2>Xerém de Amendoim</h2>
+                        <h2>R$ 1.00</h2>
+                      </div>
                     </label>
-
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="1.00">  
-                            <div class="flex flex-auto gap-4">                                
-                                <h2>Paçoca</h2>                   
-                                <h2>R$ 1.00</h2>
-                            </div>
-                        <span class="checkmark"></span>
+                  
+                    <label class="flex items-center gap-4 cursor-pointer">
+                      <input type="checkbox" data-price="1.00" class="form-checkbox h-5 w-5 text-blue-600">
+                      <div class="flex justify-between w-full">
+                        <h2>Paçoca</h2>
+                        <h2>R$ 1.00</h2>
+                      </div>
                     </label>
-
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="1.50">  
-                            <div class="flex flex-auto gap-4">                                
-                                <h2>Gotas de Chocolate</h2>                   
-                                <h2>R$ 1.50</h2>
-                            </div>
-                        <span class="checkmark"></span>
+                  
+                    <label class="flex items-center gap-4 cursor-pointer">
+                      <input type="checkbox" data-price="1.50" class="form-checkbox h-5 w-5 text-blue-600">
+                      <div class="flex justify-between w-full">
+                        <h2>Gotas de Chocolate</h2>
+                        <h2>R$ 1.50</h2>
+                      </div>
                     </label>
-
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="1.50">  
-                            <div class="flex flex-auto gap-4">                                
-                                <h2>MMs</h2>                   
-                                <h2>R$ 1.50</h2>
-                            </div>
-                        <span class="checkmark"></span>
+                  
+                    <label class="flex items-center gap-4 cursor-pointer">
+                      <input type="checkbox" data-price="1.50" class="form-checkbox h-5 w-5 text-blue-600">
+                      <div class="flex justify-between w-full">
+                        <h2>MMs</h2>
+                        <h2>R$ 1.50</h2>
+                      </div>
                     </label>
-
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="1.00">  
-                            <div class="flex flex-auto gap-4">                                
-                                <h2>Granulado / Chocolate</h2>                   
-                                <h2>R$ 1.00</h2>
-                            </div>
-                        <span class="checkmark"></span>
+                  
+                    <label class="flex items-center gap-4 cursor-pointer">
+                      <input type="checkbox" data-price="1.00" class="form-checkbox h-5 w-5 text-blue-600">
+                      <div class="flex justify-between w-full">
+                        <h2>Granulado / Chocolate</h2>
+                        <h2>R$ 1.00</h2>
+                      </div>
                     </label>
-
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="1.00">  
-                            <div class="flex flex-auto gap-4">                                
-                                <h2>Jujuba</h2>                   
-                                <h2>R$ 1.00</h2>
-                            </div>
-                        <span class="checkmark"></span>
+                  
+                    <label class="flex items-center gap-4 cursor-pointer">
+                      <input type="checkbox" data-price="1.00" class="form-checkbox h-5 w-5 text-blue-600">
+                      <div class="flex justify-between w-full">
+                        <h2>Jujuba</h2>
+                        <h2>R$ 1.00</h2>
+                      </div>
                     </label>
-
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="1.00">  
-                            <div class="flex flex-auto gap-4">                                
-                                <h2>Farinha láctea</h2>                   
-                                <h2>R$ 1.00</h2>
-                            </div>
-                        <span class="checkmark"></span>
+                  
+                    <label class="flex items-center gap-4 cursor-pointer">
+                      <input type="checkbox" data-price="1.00" class="form-checkbox h-5 w-5 text-blue-600">
+                      <div class="flex justify-between w-full">
+                        <h2>Farinha láctea</h2>
+                        <h2>R$ 1.00</h2>
+                      </div>
                     </label>
-
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="1.00">  
-                            <div class="flex flex-auto gap-4">                                
-                                <h2>Bis</h2>                   
-                                <h2>R$ 1.00</h2>
-                            </div>
-                        <span class="checkmark"></span>
+                  
+                    <label class="flex items-center gap-4 cursor-pointer">
+                      <input type="checkbox" data-price="1.00" class="form-checkbox h-5 w-5 text-blue-600">
+                      <div class="flex justify-between w-full">
+                        <h2>Bis</h2>
+                        <h2>R$ 1.00</h2>
+                      </div>
                     </label>
-
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="1.00">  
-                            <div class="flex flex-auto gap-4">                                
-                                <h2>Biscoito Oreo</h2>                   
-                                <h2>R$ 1.00</h2>
-                            </div>
-                        <span class="checkmark"></span>
+                  
+                    <label class="flex items-center gap-4 cursor-pointer">
+                      <input type="checkbox" data-price="1.00" class="form-checkbox h-5 w-5 text-blue-600">
+                      <div class="flex justify-between w-full">
+                        <h2>Biscoito Oreo</h2>
+                        <h2>R$ 1.00</h2>
+                      </div>
                     </label>
-
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="2.00">  
-                            <div class="flex flex-auto gap-4">                                
-                                <h2>Kit Kat</h2>                   
-                                <h2>R$ 2.00</h2>
-                            </div>
-                        <span class="checkmark"></span>
+                  
+                    <label class="flex items-center gap-4 cursor-pointer">
+                      <input type="checkbox" data-price="2.00" class="form-checkbox h-5 w-5 text-blue-600">
+                      <div class="flex justify-between w-full">
+                        <h2>Kit Kat</h2>
+                        <h2>R$ 2.00</h2>
+                      </div>
                     </label>
-
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="1.00">  
-                            <div class="flex flex-auto gap-4">                                
-                                <h2>Barra de Chocolate</h2>                   
-                                <h2>R$ 1.00</h2>
-                            </div>
-                        <span class="checkmark"></span>
+                  
+                    <label class="flex items-center gap-4 cursor-pointer">
+                      <input type="checkbox" data-price="1.00" class="form-checkbox h-5 w-5 text-blue-600">
+                      <div class="flex justify-between w-full">
+                        <h2>Barra de Chocolate</h2>
+                        <h2>R$ 1.00</h2>
+                      </div>
                     </label>
-                    
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="0.50">  
-                        <div class="flex flex-auto gap-4">                                
-                            <h2>Calda de Morango</h2>                   
-                            <h2>R$ 0.50</h2>
-                        </div>
-                        <span class="checkmark"></span>
+                  
+                    <label class="flex items-center gap-4 cursor-pointer">
+                      <input type="checkbox" data-price="0.50" class="form-checkbox h-5 w-5 text-blue-600">
+                      <div class="flex justify-between w-full">
+                        <h2>Calda de Morango</h2>
+                        <h2>R$ 0.50</h2>
+                      </div>
                     </label>
-                    
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="0.50">  
-                        <div class="flex flex-auto gap-4">                                
-                            <h2>Calda de Chocolate</h2>                   
-                            <h2>R$ 0.50</h2>
-                        </div>
-                        <span class="checkmark"></span>
+                  
+                    <label class="flex items-center gap-4 cursor-pointer">
+                      <input type="checkbox" data-price="0.50" class="form-checkbox h-5 w-5 text-blue-600">
+                      <div class="flex justify-between w-full">
+                        <h2>Calda de Chocolate</h2>
+                        <h2>R$ 0.50</h2>
+                      </div>
                     </label>
-                    
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="0.50">  
-                        <div class="flex flex-auto gap-4">                                
-                            <h2>Calda de Banana Caramelizda</h2>                   
-                            <h2>R$ 0.50</h2>
-                        </div>
-                        <span class="checkmark"></span>
+                  
+                    <label class="flex items-center gap-4 cursor-pointer">
+                      <input type="checkbox" data-price="0.50" class="form-checkbox h-5 w-5 text-blue-600">
+                      <div class="flex justify-between w-full">
+                        <h2>Calda de Banana Caramelizda</h2>
+                        <h2>R$ 0.50</h2>
+                      </div>
                     </label>
-
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="2.00">  
-                        <div class="flex flex-auto gap-4">                                
-                            <h2>Tortuguita</h2>                   
-                            <h2>R$ 2.00</h2>
-                        </div>
-                        <span class="checkmark"></span>
+                  
+                    <label class="flex items-center gap-4 cursor-pointer">
+                      <input type="checkbox" data-price="2.00" class="form-checkbox h-5 w-5 text-blue-600">
+                      <div class="flex justify-between w-full">
+                        <h2>Tortuguita</h2>
+                        <h2>R$ 2.00</h2>
+                      </div>
                     </label>
-                    
-                    <label class="checkbox-container">
-                        <input type="checkbox" data-price="1.00">  
-                            <div class="flex flex-auto gap-4">                                
-                                <h2>Amendoim Salgado</h2>                   
-                                <h2>R$ 1.00</h2>
-                            </div>
-                        <span class="checkmark"></span>
+                  
+                    <label class="flex items-center gap-4 cursor-pointer">
+                      <input type="checkbox" data-price="1.00" class="form-checkbox h-5 w-5 text-blue-600">
+                      <div class="flex justify-between w-full">
+                        <h2>Amendoim Salgado</h2>
+                        <h2>R$ 1.00</h2>
+                      </div>
                     </label>
-                    
-                </div>
-                
+                  </div>
+                                  
                 <!-- FIM ADICIONIAS -->
 
-                <p class="font-bold">Total: <span id="cart-total">0.00</span></p>
+
+                <p class="font-bold">Total: <span id="cart-total-acai">0.00</span></p>
 
                 <p class="font-bold mt-4">Observação</p>
                 <input type="text"
@@ -373,7 +339,7 @@
                
                 <div class="flex items-center justify-between mt-5 w-full">
                     <button id="close-modal-btn-acai">Fechar</button>
-                    <button id="checkout-btn" class="bg-green-500 text-white px-4 py-1 rounded">Finalizar pedido</button>
+                    <button id="add-cart-btn" class="bg-green-500 text-white px-4 py-1 rounded">Adicionar pedido</button>
                 </div>
 
             </div>
@@ -383,15 +349,216 @@
         <!-- FIM MODAL CART ACAI -->
 
 
+         <!-- MODAL CART SORVETE -->
+         
+         <div 
+         class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden"
+         id="cart-sorvete"
+         >
+         
+         <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px] max-h-[90vh] overflow-y-auto">
+             <h2 class="text-center font-bold text-2xl mb-2">Picolé</h2>
+             
+             <div id="cart-items" class="flex justify-between mb-2 flex-col"></div>
+             
+             <div class="grid grid-cols-1 gap-2 mx-auto max-w-7xl px-2 mb-5">
+                 <h1 class="font-bold mb-2">Escolha um Sorvete</h1>
+                 
+                 <label class="flex items-center gap-4 cursor-pointer">
+                     <input type="checkbox" data-price="6.00" class="form-checkbox h-5 w-5 text-blue-600">
+                     <div class="flex flex-col">
+                         <h2>300ml - 2 bolas</h2>
+                         <h2>R$ 6.00</h2>
+                        </div>
+                    </label>
+                    
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" data-price="12.00" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>600ml - 4 bolas</h2>
+                            <h2>R$ 12.00</h2>
+                        </div>
+                    </label>
+                    
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" data-price="20.00" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>1l - 12 bolas</h2>
+                            <h2>R$ 20.00</h2>
+                        </div>
+                    </label>
 
-        <!-- MODAL CART -->
-        <div 
-        class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden"
-        id="cart-modal"
-        >
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" data-price="0.50" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>Cascão</h2>
+                            <h2>R$ 0.50</h2>
+                        </div>
+                    </label>
+                    
+                </div>
 
-            <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
-                <h2 class="text-center font-bold text-2xl mb-2">Meu carrinho</h2>
+                <!-- SABORES DE SORVETE -->
+
+            <div class="grid grid-cols-1 gap-2 mx-auto max-w-7xl px-2 mb-10">
+                    <h1 class="font-bold mb-2">Sabores do sorvete</h1>
+
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>Cupuaçu</h2>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>Ninho com Nutella</h2>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>Leite ninho</h2>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>Castanha</h2>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>Amendoin</h2>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>Chocolate </h2>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>Creme com goiaba</h2>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>Maracujá</h2>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>Bom bom</h2>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>Milho</h2>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>Morango</h2>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>Coco</h2>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>Bis</h2>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center gap-4 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                        <div class="flex flex-col">
+                            <h2>Sensação</h2>
+                        </div>
+                    </label>
+                    
+                </div>
+
+                <!-- CALDAS -->
+
+                    <div class="grid grid-cols-1 gap-2 mx-auto max-w-7xl px-2 mb-10">
+                        <h1 class="font-bold mb-2">Caldas</h1>
+
+                        <label class="flex items-center gap-4 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                            <div class="flex flex-col">
+                                <h2>Chocolate</h2>
+                            </div>
+                        </label>
+
+                        <label class="flex items-center gap-4 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                            <div class="flex flex-col">
+                                <h2>Chiclete</h2>
+                            </div>
+                        </label>
+
+                        <label class="flex items-center gap-4 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                            <div class="flex flex-col">
+                                <h2>Morango</h2>
+                            </div>
+                        </label>
+
+                        <label class="flex items-center gap-4 cursor-pointer">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600">
+                            <div class="flex flex-col">
+                                <h2>Banana caramelizada</h2>
+                            </div>
+                        </label>
+
+                    </div>
+
+                    <p class="font-bold">Total: <span id="cart-total-picole">0.00</span></p>
+                   
+                    <div class="flex items-center justify-between mt-5 w-full">
+                        <button id="close-modal-btn-sorvete">Fechar</button>
+                        <button id="add-cart-btn" class="bg-green-500 text-white px-4 py-1 rounded">Adicionar pedido</button>
+                    </div>
+    
+
+             </div>
+            </div>
+                
+                <!-- FIM MODAL CART SORVETE -->
+                
+                <!-- MODAL CART -->
+                <div 
+                class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden"
+                id="cart-modal"
+                >
+                
+                <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
+                    <h2 class="text-center font-bold text-2xl mb-2">Meu carrinho</h2>
 
                 <div id="cart-items" class="flex justify-between mb-2 flex-col"></div>
 
@@ -414,19 +581,20 @@
 
         </div>
         <!-- FIM MODAL CART -->
+                
 
-        <!-- BUTTON CAR FOOTER -->
-        <footer class="w-full bg-red-500 py-3 fixed bottom-0 z-40 flex items-center justify-center">
-            <button 
-            class="flex items-center gap-2 text-white font-bold"
-            id="cart-btn"
-            >
-                (<span id="cart-count">0</span>)
-                Veja meu carrinho
-                <i class="fa fa-cart-plus text-lg text-white"></i>
-            </button>
-        </footer>
-        <!-- FIM BUTTON CAR FOOTER -->
+              <!-- BUTTON CAR FOOTER -->
+              <footer class="w-full bg-red-500 py-3 fixed bottom-0 z-40 flex items-center justify-center">
+                <button 
+                class="flex items-center gap-2 text-white font-bold"
+                id="cart-btn"
+                >
+                    (<span id="cart-count">0</span>)
+                    Veja meu carrinho
+                    <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+            </footer>
+            <!-- FIM BUTTON CAR FOOTER -->
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="script.js"></script>

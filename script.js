@@ -11,28 +11,12 @@ const addressWarn = document.getElementById("address-warn")
 const cartAcai = document.getElementById("cart-acai")
 const acaibtn = document.getElementById("acai-btn")
 const closeModalAcai = document.getElementById("close-modal-btn-acai")
+const sorveteBtn = document.getElementById("sorvete-btn")
+const cartSorvete = document.getElementById("cart-sorvete")
 
 
 // Array vazio
 let cart =[];
-
-// Abrir o modal do Açai
-acaibtn.addEventListener("click", function() {
-    updateCartModal();
-    cartAcai.style.display = "flex"
-})
-
-// Fechar o modal Acai quando clicar fora
-cartAcai.addEventListener("click", function(event){
-    if(event.target === cartAcai) {
-        cartAcai.style.display = "none"
-    }
-}) 
-
-// Clica para fechar o Modal Acai(Area de venda)
-closeModalAcai.addEventListener("click", function(){
-    cartAcai.style.display = "none"
-})
 
 // Abrir o modal do carrinho
 cartBtn.addEventListener("click", function() {
@@ -51,6 +35,15 @@ cartModal.addEventListener("click", function(event){
 closeModalBtn.addEventListener("click", function(){
     cartModal.style.display = "none"
 })
+
+
+// Abrir o modal do carrinho
+cartBtn.addEventListener("click", function() {
+    updateCartModal();
+    cartModal.style.display = "flex"
+})
+
+
 
 // Click no carrinho do produto
 menu.addEventListener("click", function(event){
@@ -219,7 +212,7 @@ updateCartModal();
 function checkRestaurantOpen(){
     const data = new Date();
     const hora = data.getHours();
-    return hora >= 18 && hora < 22; // true = restaurante esta aberto
+    return hora >= 13 && hora < 23; // true = restaurante esta aberto
 }
 
 
@@ -233,3 +226,93 @@ if(isOpen){
     spanItem.classList.remove("bg-green-600");
     spanItem.classList.add("bg-red-500");
 }
+
+
+// Abrir o modal do Açai
+acaibtn.addEventListener("click", function() {
+    updateCartModal();
+    cartAcai.style.display = "flex"
+})
+
+// Fechar o modal Acai quando clicar fora
+cartAcai.addEventListener("click", function(event){
+    if(event.target === cartAcai) {
+        cartAcai.style.display = "none"
+    }
+}) 
+
+// Clica para fechar o Modal Acai (Area de venda)
+closeModalAcai.addEventListener("click", function(){
+    cartAcai.style.display = "none"
+})
+
+const closeModalSorvete = document.getElementById("close-modal-btn-sorvete")
+
+// Abrir o modal do Sorvete
+sorveteBtn.addEventListener("click", function() {
+    updateCartModal();
+    cartSorvete.style.display = "flex"
+})
+
+// Clica para fechar o Modal Sorvete (Area de venda)
+closeModalSorvete.addEventListener("click", function(){
+    cartSorvete.style.display = "none"
+})
+
+// Fechar o modal Sorvete quando clicar fora
+cartSorvete.addEventListener("click", function(event){
+    if(event.target === cartSorvete) {
+        cartSorvete.style.display = "none"
+    }
+})
+
+function updateCartTotalPicolé() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"][data-price]');
+    let total = 0;
+
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            const price = parseFloat(checkbox.getAttribute("data-price"));
+            total += price;
+        }
+    });
+
+    const totalElement = document.getElementById("cart-total-picole");
+    totalElement.textContent = total.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    });
+}
+
+// Atualiza o total sempre que qualquer checkbox com data-price mudar
+const priceCheckboxes = document.querySelectorAll('input[type="checkbox"][data-price]');
+priceCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener("change", updateCartTotalPicolé);
+});
+
+
+
+  function atualizarTotalAcai() {
+    let total = 0;
+    const checkboxes = document.querySelectorAll('#cart-acai input[type="checkbox"]');
+
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        total += parseFloat(checkbox.getAttribute('data-price'));
+      }
+    });
+
+    document.getElementById('cart-total-acai').innerText = total.toFixed(2);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const checkboxes = document.querySelectorAll('#cart-acai input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', atualizarTotalAcai);
+    });
+
+    atualizarTotalAcai(); // Garante que o total comece certo
+  });
+
+
+  
