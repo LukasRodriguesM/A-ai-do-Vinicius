@@ -48,7 +48,7 @@ cartBtn.addEventListener("click", function() {
 // Click no carrinho do produto
 menu.addEventListener("click", function(event){
     
-    let parenButton = event.target.closest(".add-to-cart-btn")
+    let parenButton = event.target.closest(".add-to-cart-btn-acai")
 
     if(parenButton){
         const name = parenButton.getAttribute("data-name")
@@ -61,65 +61,83 @@ menu.addEventListener("click", function(event){
 
 
 // Função para adicionar no carrinho
-function addToCart(name, price){
-    const existingItem = cart.find(item => item.name === name)
+function addToCart(name, price, extras = [], obs = "") {
+    const existingItem = cart.find(item => 
+        item.name === name && 
+        JSON.stringify(item.extras) === JSON.stringify(extras) &&
+        item.obs === obs
+    );
 
-    if(existingItem){
-        // Se o item já existe, aumneta apenas a quantidade + 1
+    if (existingItem) {
         existingItem.quantity += 1;
-
-       }else{
-
+    } else {
         cart.push({
             name,
             price,
             quantity: 1,
-        })
+            extras,
+            obs
+        });
+    }
 
-    }  
-
-    updateCartModal()
-
+    updateCartModal();
 }
 
+
 // Atualiza o carrinho
-function updateCartModal(){
-    cartItemsContainer.innerHTML = "";
+function updateCartModal() {
+    cartItemsContainer.innerHTML = ""; // Limpa a lista do carrinho
     let total = 0;
 
     cart.forEach(item => {
         const cartItemElement = document.createElement("div");
-        cartItemElement.classList.add("flex", "justify-between", "mb-4", "flex-col")
+        cartItemElement.classList.add("flex", "justify-between", "mb-4", "flex-col", "bg-gray-100", "p-3", "rounded");
 
+        // Monta os adicionais
+        let extrasHTML = "";
+        if (item.extras && item.extras.length > 0) {
+            extrasHTML = `<div class="ml-2 mt-1 text-sm text-gray-700">
+                ${item.extras.map(extra => `<p>+ ${extra}</p>`).join("")}
+            </div>`;
+        }
+
+        // Monta a observação
+        let obsHTML = "";
+        if (item.obs && item.obs.trim() !== "") {
+            obsHTML = `<p class="ml-2 mt-2 text-xs italic text-gray-600">Obs: ${item.obs}</p>`;
+        }
+
+        // Adiciona o nome do item, adicionais, observação, quantidade e preço
         cartItemElement.innerHTML = `
-        <div class="flex items-center justify-between">
-            <div>
-                <p class="font-medium">${item.name}</p>
-                <p>Qtd: ${item.quantity}</p>
-                <p class="font-medium mt-2">R$ ${item.price.toFixed(2)}</p>
+            <div class="flex items-start justify-between">
+                <div>
+                    <p class="font-semibold">${item.name}</p> <!-- Nome do item -->
+                    ${extrasHTML} <!-- Exibe os adicionais -->
+                    ${obsHTML} <!-- Exibe a observação -->
+                    <p class="mt-2 font-medium">Qtd: ${item.quantity}</p>
+                    <p class="font-medium">R$ ${item.price.toFixed(2)}</p>
+                </div>
+                <button class="remove-from-cart-btn text-red-500 text-sm font-semibold mt-1" data-name="${item.name}">
+                    Remover
+                </button>
             </div>
-            
-        
-            <button class="remove-from-cart-btn" data-name="${item.name}">
-                Remover
-            </button>
-        
-        </div>
-        `
+        `;
 
         total += item.price * item.quantity;
 
-        cartItemsContainer.appendChild(cartItemElement)
-    })
+        cartItemsContainer.appendChild(cartItemElement);
+    });
 
-        cartTotal.textContent = total.toLocaleString("pt-Br",{
-            style: "currency",
-            currency: "BRL"
+    // Atualiza o total do carrinho
+    cartTotal.textContent = total.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
     });
 
     cartCounter.innerHTML = cart.length;
-
 }
+
+
 
 
 // Função para remover item do carrinho
@@ -133,23 +151,21 @@ cartItemsContainer.addEventListener("click", function(event){
 })
 
 function removeItemCart(name){
-    const index = cart.findIndex(item => item.name === name);
-// Se for um produto, apenas remover
-    if(index !== -1){
-        const item = cart[index];
-// Se for mais de um produto, diminuir a quantidade        
-        if(item.quantity > 1){
-            item.quantity -= 1;
+    function removeItemCart(name) {
+        const index = cart.findIndex(item => item.name === name);
+        if (index !== -1) {
+            const item = cart[index];
+            if (item.quantity > 1) {
+                item.quantity -= 1;
+            } else {
+                cart.splice(index, 1);
+            }
             updateCartModal();
-            return;
         }
-
-            cart.splice(index, 1);
-            updateCartModal();
-
     }
-
 }
+
+    
 // Verificar o endereço
 addressInput.addEventListener("input", function(event){
     let inputValue = event.target.value;
@@ -315,4 +331,49 @@ priceCheckboxes.forEach(checkbox => {
   });
 
 
-  
+
+  document.getElementById("add-cart-btn-acai").addEventListener("click", function () {
+    const checkedSizes = document.querySelectorAll(
+        "#cart-acai input[type='checkbox']:checked[data-name^='Açai']"
+    );
+    const checkedAdditionals = document.querySelectorAll(
+        "#cart-acai input[type='checkbox']:checked:not([data-name^='Açai'])"
+    );
+
+    // Validação: impedir mais de um tamanho
+    if (checkedSizes.length !== 1) {
+        alert("Selecione apenas um tamanho de açaí.");
+        return;
+    }
+
+    const size = checkedSizes[0].getAttribute("data-name");
+    const sizePrice = parseFloat(checkedSizes[0].getAttribute("data-price"));
+
+    let additionals = [];
+    let additionalsPrice = 0;
+
+    checkedAdditionals.forEach((el) => {
+        const name = el.getAttribute("data-name");
+        const price = parseFloat(el.getAttribute("data-price"));
+        additionals.push(name);
+        additionalsPrice += price;
+    });
+
+    const observation = document.getElementById("observation").value;
+
+    // Monta o nome final do item
+    const finalPrice = sizePrice + additionalsPrice;
+
+// Envia os dados separadamente
+addToCart(size, finalPrice, additionals, observation);
+
+
+    // Fecha o modal (opcional)
+    document.getElementById("cart-acai").classList.add("hidden");
+
+    // Limpa seleção
+    document.querySelectorAll("#cart-acai input[type='checkbox']").forEach((el) => {
+        el.checked = false;
+    });
+    document.getElementById("observation").value = "";
+});
