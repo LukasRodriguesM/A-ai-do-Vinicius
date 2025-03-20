@@ -18,6 +18,7 @@ const cartSorvete = document.getElementById("cart-sorvete")
 // Array vazio
 let cart =[];
 
+
 // Abrir o modal do carrinho
 cartBtn.addEventListener("click", function() {
     updateCartModal();
@@ -48,7 +49,7 @@ cartBtn.addEventListener("click", function() {
 // Click no carrinho do produto
 menu.addEventListener("click", function(event){
     
-    let parenButton = event.target.closest(".add-to-cart-btn-acai")
+    let parenButton = event.target.closest(".add-to-cart-btn")
 
     if(parenButton){
         const name = parenButton.getAttribute("data-name")
@@ -332,7 +333,7 @@ priceCheckboxes.forEach(checkbox => {
 
 
 
-  document.getElementById("add-cart-btn-acai").addEventListener("click", function () {
+ document.getElementById("add-cart-btn-acai").addEventListener("click", function () {
     const checkedSizes = document.querySelectorAll(
         "#cart-acai input[type='checkbox']:checked[data-name^='Açai']"
     );
@@ -340,7 +341,6 @@ priceCheckboxes.forEach(checkbox => {
         "#cart-acai input[type='checkbox']:checked:not([data-name^='Açai'])"
     );
 
-    // Validação: impedir mais de um tamanho
     if (checkedSizes.length !== 1) {
         alert("Selecione apenas um tamanho de açaí.");
         return;
@@ -360,20 +360,23 @@ priceCheckboxes.forEach(checkbox => {
     });
 
     const observation = document.getElementById("observation").value;
-
-    // Monta o nome final do item
     const finalPrice = sizePrice + additionalsPrice;
 
-// Envia os dados separadamente
-addToCart(size, finalPrice, additionals, observation);
-
-
-    // Fecha o modal (opcional)
-    document.getElementById("cart-acai").classList.add("hidden");
+    // Adiciona ao carrinho principal
+    addToCart(size, finalPrice, additionals, observation);
 
     // Limpa seleção
     document.querySelectorAll("#cart-acai input[type='checkbox']").forEach((el) => {
         el.checked = false;
     });
     document.getElementById("observation").value = "";
+
+    // Atualiza carrinho principal
+    updateCartModal();
+
+    // Fecha o modal do Açaí
+    cartAcai.style.display = "none";
+
+
 });
+
